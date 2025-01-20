@@ -13,21 +13,25 @@
   <eClassifiers xsi:type="ecore:EClass" name="NamedEntity" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VendingMachine" eSuperTypes="#//NamedEntity #//HasId">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//Location"
+  <eClassifiers xsi:type="ecore:EClass" name="VendingMachine" eSuperTypes="/VendingMachineUAQ/model/vendingMachineUAQ.ecore#//NamedEntity /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//HasId">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="ecore:EClass /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//Location"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="#//State"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="ecore:EClass /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//State"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="keypad" lowerBound="1"
-        eType="#//Keypad" containment="true"/>
+        eType="ecore:EClass /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//Keypad"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="paymentProcessor" lowerBound="1"
-        eType="#//PaymentProcessor" containment="true"/>
+        eType="ecore:EClass /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//PaymentProcessor"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemProcessor" lowerBound="1"
-        eType="#//ItemProcessor" containment="true"/>
+        eType="ecore:EClass /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//ItemProcessor"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inventory" lowerBound="1"
-        eType="#//Inventory" containment="true"/>
+        eType="ecore:EClass /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//Inventory"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Location" eSuperTypes="#//NamedEntity">
+  <eClassifiers xsi:type="ecore:EClass" name="Location" eSuperTypes="/VendingMachineUAQ/model/vendingMachineUAQ.ecore#//NamedEntity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="ValidCoordinates"/>
     </eAnnotations>
@@ -40,23 +44,23 @@
   <eClassifiers xsi:type="ecore:EClass" name="HasId" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Keypad" eSuperTypes="#//HasOperation">
+  <eClassifiers xsi:type="ecore:EClass" name="Keypad" eSuperTypes="/VendingMachineUAQ/model/vendingMachineUAQ.ecore#//HasOperation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="input" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HasOperation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//STATE_OPERATIONS"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="ecore:EEnum /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//STATE_OPERATIONS"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ItemProcessor" eSuperTypes="#//HasOperation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="#//State"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemProcessor" eSuperTypes="/VendingMachineUAQ/model/vendingMachineUAQ.ecore#//HasOperation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="ecore:EClass /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//State"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentStage" lowerBound="1"
-        eType="#//STATES">
+        eType="ecore:EEnum /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//STATES">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
         <details key="derivation" value="self.state.stage"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stage" lowerBound="1" eType="#//STATES"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stage" lowerBound="1" eType="ecore:EEnum /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//STATES"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="STATE_OPERATIONS">
     <eLiterals name="SELECT_ITEM_collectCoin"/>
@@ -77,7 +81,7 @@
     <eLiterals name="PROCESSING_ITEM" value="3"/>
     <eLiterals name="ITEM_DESPATCHED" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PaymentProcessor" eSuperTypes="#//HasOperation">
+  <eClassifiers xsi:type="ecore:EClass" name="PaymentProcessor" eSuperTypes="/VendingMachineUAQ/model/vendingMachineUAQ.ecore#//HasOperation">
     <eOperations name="isPaymentComplete" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
         <details key="body" value="self.state.stage = STATES::PROCESSING_PAYMENT and not self.paymentMethod.oclIsUndefined()"/>
@@ -86,10 +90,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="amound" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="paymentMethod" lowerBound="1"
-        eType="#//PAYMENT_METHODS"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="#//State"/>
+        eType="ecore:EEnum /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//PAYMENT_METHODS"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="ecore:EClass /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//State"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ItemGroup" eSuperTypes="#//HasId #//NamedEntity">
+  <eClassifiers xsi:type="ecore:EClass" name="ItemGroup" eSuperTypes="/VendingMachineUAQ/model/vendingMachineUAQ.ecore#//HasId /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//NamedEntity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="PositiveQuantity"/>
     </eAnnotations>
@@ -101,15 +105,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#//Item" containment="true" eOpposite="#//Item/itemGroup"/>
+        eType="ecore:EClass /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//Item"
+        containment="true" eOpposite="/VendingMachineUAQ/model/vendingMachineUAQ.ecore#//Item/itemGroup"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Item" eSuperTypes="#//HasId">
+  <eClassifiers xsi:type="ecore:EClass" name="Item" eSuperTypes="/VendingMachineUAQ/model/vendingMachineUAQ.ecore#//HasId">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expiry" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemGroup" lowerBound="1"
-        eType="#//ItemGroup" eOpposite="#//ItemGroup/items"/>
+        eType="ecore:EClass /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//ItemGroup"
+        eOpposite="/VendingMachineUAQ/model/vendingMachineUAQ.ecore#//ItemGroup/items"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Inventory" eSuperTypes="#//HasId">
+  <eClassifiers xsi:type="ecore:EClass" name="Inventory" eSuperTypes="/VendingMachineUAQ/model/vendingMachineUAQ.ecore#//HasId">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="NonNegativeCapacity"/>
     </eAnnotations>
@@ -122,7 +128,8 @@
       </eAnnotations>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemGroups" upperBound="-1"
-        eType="#//ItemGroup" containment="true"/>
+        eType="ecore:EClass /VendingMachineUAQ/model/vendingMachineUAQ.ecore#//ItemGroup"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastRestocked" lowerBound="1"

@@ -8,7 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: vendingMachineUAQ.presentation.VendingMachineUAQEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-21
+Bundle-RequiredExecutionEnvironment: JavaSE-15
 Export-Package: vendingMachineUAQ.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
