@@ -18,30 +18,11 @@
       state="//@state"/>
   <inventory
       capacity="2"
-      lastRestocked="2025-01-12T20:00:00.000+0200">
+      lastRestocked="2025-01-13T00:00:00.000+0600">
     <itemGroups
         name="Chocolates"
         quantity="1"
         price="1.25"
-        image="chocolates.jpg">
-      <items
-          id="876"
-          expiry="2025-12-30T20:00:00.000+0200"/>
-      <items
-          id="19"
-          expiry="2025-12-30T20:00:00.000+0200"/>
-      <items
-          id="97"
-          expiry="2025-12-30T20:00:00.000+0200"/>
-    </itemGroups>
-    <itemGroups
-        id="32"
-        name="Candy"
-        quantity="123"
-        price="2.5">
-      <items
-          id="98"
-          expiry="2025-12-30T20:00:00.000+0200"/>
-    </itemGroups>
+        image="chocolates.jpg"/>
   </inventory>
 </vendingMachineUAQ:VendingMachine>
